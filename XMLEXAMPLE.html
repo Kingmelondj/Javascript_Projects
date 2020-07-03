@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <p id="XML_Example"></p>
+    <script>
+        var XML_Parser, XML_Document;
+
+        // Creates a text string
+        var City = "<city>" +
+            "<title>Tokyo</title>" +
+            "<country>Japan</country>" +
+            "<primeMinister>Shinzo Abe</primeMinister>" +
+            "<founded>1603</founded>" +
+            "<region>Kanto</region>" +
+            "</city>"
+
+        // Creates an XML DOM parser
+        XML_Parser = new DOMParser();
+
+        // creates a new XML DOM Object using the text string
+        XML_Document = XML_Parser.parseFromString(City, "text/xml");
+
+        document.getElementById("XML_Example").innerHTML =
+            XML_Document.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+    </script>
+
+</body>
+
+</html>
