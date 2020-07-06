@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <!-- Concate() Method concatenates (Connects) two or more strings together. -->
+
+    <p id="Concatenate"></p>
+        <button onclick="full_Sentence()">
+            Click here for a sentence.
+        </button>
+
+
+<!-- Slice() Method
+The slice() Method is a string method that extracts a section
+of a string and then returns the extracted section in a new string.
+
+First, we create a <p> element with an id attribute in our HTML file
+
+such as: -->
+
+<p id="Slice"></p>
+
+<!-- Next, we would create a <button> element with an onclick
+attribute to call the function from the Javascript file, like this: -->
+
+    <button onclick="slice_Method()">
+        What's your name?
+    </button>
+
+<!-- "toUpperCase() Method." -->
+
+
+<p>Click the button to turn into uppercase letters.</p>
+
+    <button onclick="upMethod()">
+        LVL UP
+    </button>
+
+<p id="Startedfromthelowernowwehere"></p>
+
+
+<!-- Search()Method 
+The search() method searches a string for a specific value,
+then returns the pisition of the match.
+
+The search value can be string or a regular expression.
+
+This method returns -1 if no match is found. -->
+
+<p>Click the button to search a string for Guitar Covers, and display the position of the match</p>
+    <button onclick="SearchGuitarCover()">
+        Covers
+    </button>
+<p id="Covertest"></p>
+<!-- 
+Number methods
+
+Number methods assist you in working with numbers.
+There are several types - onis the "toString()" Method that 
+returns a number as a string.
+
+Example: -->
+
+<p id="Numbers_to_string"></p>
+    <button onclick="string_Method()">
+       String number result =
+    </button>
+
+
+<!-- TOPRECISION() Method
+
+The toPrecision() Method formats a number to a specified length. first the HTML Code: -->
+
+<p id="Precision"></p>
+    <button onclick="precision_Method()">
+        Let's be Precise.
+    </button>
+
+
+<!-- 
+toFixed() Method
+This method converst a number into a string, rounding to a specified number of decimals. -->
+<!-- Note: if the desired number of decimals are higher than the actual number, zeros are added to  create the desired decimal length. -->
+
+<p> Click the button to display the fixed number.</p>
+<p>original number = 5.56789</p>
+    <button onclick="fixnumFunction()">
+        Fix
+    </button>
+<p id="FixNumber"></p>
+ 
+
+
+<!-- valueOf() method:
+Returns the primitive value of a string object. 
+
+Note: This method is usually called automatically by JavaScript behind the scenes,
+and not explilcitly in code. -->
+
+<p>Click the button to return the primitive value of the string object.</p>
+    <button onclick="oFunction()">The Original value is...</button>
+<p id="Orignal1"></p>
+
+
+<!-- This is a Timer -->
+
+<p>How many seconds would you like to set your alarm for?</p>
+    <input id ="seconds" value=""/>
+    <button onclick="countdown()">ボタン</button>
+ <p id="timer"></p>
+
+
+
+<script src="./JS/Basic_JavaScript_8.js"></script>
+
+</body>
+</html>
