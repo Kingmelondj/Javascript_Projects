@@ -7,17 +7,17 @@ const Calculator = {
     // This checks whether or not the second operand has been input
     Wait_Second_Operand: false,
     // This will hold the operator, we set it to null for now
-    Operator: null,
+    operator: null,
 };
 
 // This modifies values each time a button is clicked
 function Input_Digit(digit) {
-    const { Display_Value, wait_Second_Operand } = Calculator;
+    const { Display_Value, Wait_Second_Operand } = Calculator;
     // we are checking to see if Wait_Second_Operand is true and set
     // Display_Value to the key that was clicked.
-    if (wait_Second_Operand === true) {
+    if (Wait_Second_Operand === true) {
         Calculator.Display_Value = digit;
-        Calculator.wait_Second_Operand = false;
+        Calculator.Wait_Second_Operand = false;
     } else {
         // This overwrites Display_Value if the current value is 0
         // Otherwise it adds onto it
@@ -38,34 +38,34 @@ function Input_Decimal(dot) {
 }
 
 // this section handles operators
-function Handle_Operator(Next_Operator) {
-    const { First_Operand, Display_Value, Operator } = Calculator
+function Handle_operator(Next_operator) {
+    const { First_Operand, Display_Value, operator } = Calculator
     // when an operator key is pressed, we convert the current number
     // displayed on the screen to a number and then store the result in 
     // Calculator.First_Operand if it doesn't already exist
     const Value_of_Input = parseFloat(Display_Value);
     // Checks if an operator already exists and if Wait_Second_Operand is true,
     // Then updates the operator and exits from the function
-    if (Operator && Calculator.wait_Second_Operand) {
-        Calculator.Operator = Next_Operator;
+    if (operator && Calculator.Wait_Second_Operand) {
+        Calculator.operator = Next_operator;
         return;
     }
     if (First_Operand == null) {
         Calculator.First_Operand = Value_of_Input;
-    } else if (Operator) {
+    } else if (operator) {
         // Checks if an operator already exists
         const Value_Now = First_Operand || 0;
         // If operator already exists, property lookup is performed for the operator
         // In the Perfom_Calculation object and the function that matches the
         // Operator is executed
-        const result = Perform_Calculation[Operator] (Value_Now, Value_of_Input);
+        const result = Perform_Calculation[operator] (Value_Now, Value_of_Input);
 
         Calculator.Display_Value = String(result);
         Calculator.First_Operand = result;
     }
 
     Calculator.Wait_Second_Operand = true;
-    Calculator.Operator = Next_Operator;
+    Calculator.operator = Next_operator;
 }
 
 const Perform_Calculation = {
@@ -80,7 +80,7 @@ function Calculator_Reset() {
     Calculator.Display_Value = '0';
     Calculator.First_Operand = null;
     Calculator.Wait_Second_Operand = false;
-    Calculator.Operator = null;
+    Calculator.operator = null;
 }
 // This function updates the screen with contens of Display_Value
 function Update_Display() {
@@ -100,8 +100,8 @@ keys.addEventListener('click', (event) => {
         return;
     }
 
-    if (target.classList.contains('Operator')) {
-        Handle_Operator(target.value);
+    if (target.classList.contains('operator')) {
+        Handle_operator(target.value);
         Update_Display();
         return;
     }
@@ -114,7 +114,7 @@ keys.addEventListener('click', (event) => {
     // Ensures that AC clears the numbers from the Calculator
     if (target.classList.contains('all-clear')) {
         Calculator_Reset();
-        Update_Display;
+        Update_Display();
         return;
     }
 
