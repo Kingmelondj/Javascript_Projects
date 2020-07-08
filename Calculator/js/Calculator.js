@@ -29,7 +29,7 @@ function Input_Digit(digit) {
 function Input_Decimal(dot) {
     // This ensures that accidental clicking of the decimal point
     // doesn't cause bugs in your operation
-    if (Calculator.wait_Second_Operand === true) return;
+    if (Calculator.Wait_Second_Operand === true) return;
     if (!Calculator.Display_Value.includes(dot)) {
         // we are saying that if the Display_Value does not contain a decimal point
         // We want to add a decimal point
@@ -64,7 +64,7 @@ function Handle_Operator(Next_Operator) {
         Calculator.First_Operand = result;
     }
 
-    Calculator.wait_Second_Operand = true;
+    Calculator.Wait_Second_Operand = true;
     Calculator.Operator = Next_Operator;
 }
 
@@ -79,7 +79,7 @@ const Perform_Calculation = {
 function Calculator_Reset() {
     Calculator.Display_Value = '0';
     Calculator.First_Operand = null;
-    Calculator.wait_Second_Operand = false;
+    Calculator.Wait_Second_Operand = false;
     Calculator.Operator = null;
 }
 // This function updates the screen with contens of Display_Value
